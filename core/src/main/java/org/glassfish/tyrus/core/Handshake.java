@@ -276,7 +276,7 @@ public final class Handshake {
     // client side
     public void validateServerResponse(UpgradeResponse response) {
         if (RESPONSE_CODE_VALUE != response.getStatus()) {
-            throw new HandshakeException(LocalizationMessages.INVALID_RESPONSE_CODE(RESPONSE_CODE_VALUE, response.getStatus()));
+            throw new HandshakeException(response.getStatus(), LocalizationMessages.INVALID_RESPONSE_CODE(RESPONSE_CODE_VALUE, response.getStatus()));
         }
 
         checkForHeader(response.getFirstHeaderValue(UpgradeRequest.UPGRADE), UpgradeRequest.UPGRADE, UpgradeRequest.WEBSOCKET);
